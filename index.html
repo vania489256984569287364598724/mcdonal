@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDonald's — Меню</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <span>Ｍ</span>
+        <div>
+            <b>McDonald's</b>
+            <small>I'm lovin' it</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home">Головна</a>
+        <a href="#menu">Меню</a>
+        <a href="#about">Про нас</a>
+    </nav>
+
+    <button class="cart-btn" onclick="openCart()">
+        🛒 Кошик
+        <span id="cartCount">0</span>
+    </button>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <span class="badge">🔥 ХІТ ТИЖНЯ</span>
+        <h1>Смак, який<br><strong>піднімає настрій</strong></h1>
+        <p>
+            Обирай улюблені бургери, картоплю, напої та десерти.
+            Замовляй легко та швидко!
+        </p>
+
+        <a href="#menu" class="main-btn">
+            Переглянути меню →
+        </a>
+    </div>
+
+    <div class="hero-burger">
+        🍔
+        <div class="floating fries">🍟</div>
+        <div class="floating drink">🥤</div>
+    </div>
+</section>
+
+<section class="menu-section" id="menu">
+
+    <div class="section-title">
+        <div>
+            <span>НАШЕ МЕНЮ</span>
+            <h2>Обери щось смачненьке</h2>
+        </div>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔎 Пошук..."
+            oninput="searchProducts()"
+        >
+    </div>
+
+    <div class="categories">
+        <button class="category active" onclick="filterProducts('all', this)">
+            🍽️ Все
+        </button>
+
+        <button class="category" onclick="filterProducts('burger', this)">
+            🍔 Бургери
+        </button>
+
+        <button class="category" onclick="filterProducts('chicken', this)">
+            🍗 Курка
+        </button>
+
+        <button class="category" onclick="filterProducts('fries', this)">
+            🍟 Картопля
+        </button>
+
+        <button class="category" onclick="filterProducts('drink', this)">
+            🥤 Напої
+        </button>
+
+        <button class="category" onclick="filterProducts('dessert', this)">
+            🍦 Десерти
+        </button>
+    </div>
+
+    <div class="products" id="products"></div>
+</section>
+
+<section class="promo">
+    <div>
+        <span>🍔 СПЕЦІАЛЬНА ПРОПОЗИЦІЯ</span>
+        <h2>Комбо для гарного настрою</h2>
+        <p>Бургер + картопля + напій за спеціальною ціною.</p>
+    </div>
+
+    <button onclick="addProduct(1)">
+        Додати комбо
+    </button>
+</section>
+
+<section class="about" id="about">
+    <h2>Чому McDonald's?</h2>
+
+    <div class="features">
+        <div>
+            <span>⚡</span>
+            <h3>Швидко</h3>
+            <p>Улюблені страви без довгого очікування.</p>
+        </div>
+
+        <div>
+            <span>🍔</span>
+            <h3>Смачно</h3>
+            <p>Великий вибір бургерів та інших страв.</p>
+        </div>
+
+        <div>
+            <span>❤️</span>
+            <h3>Для всіх</h3>
+            <p>Щось смачне знайдеться для кожного.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo">Ｍ McDonald's</div>
+    <p>© 2026 McDonald's — демонстраційний сайт</p>
+</footer>
+
+<!-- CART -->
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<aside class="cart" id="cart">
+
+    <div class="cart-header">
+        <h2>🛒 Ваш кошик</h2>
+        <button onclick="closeCart()">✕</button>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="empty-cart" id="emptyCart">
+        <div>🛒</div>
+        <h3>Кошик порожній</h3>
+        <p>Додайте щось смачненьке!</p>
+    </div>
+
+    <div class="cart-bottom">
+        <div class="total">
+            <span>Разом:</span>
+            <strong><span id="total">0</span> ₴</strong>
+        </div>
+
+        <button class="order-btn" onclick="makeOrder()">
+            Оформити замовлення →
+        </button>
+    </div>
+
+</aside>
+
+<script src="script.js"></script>
+
+</body>
+</html>
